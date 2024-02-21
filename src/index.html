@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="../dist/output.css" rel="stylesheet" />
+    <script defer src="./assets/fontawesome/js/solid.min.js"></script>
+    <script defer src="./assets/fontawesome/js/fontawesome.min.js"></script>
+    <script>
+      window.onload = () => {
+        const mobileMenuItem = document.getElementById("mobile-menu-item");
+        mobileMenuItem.addEventListener();
+      };
+    </script>
+  </head>
+  <body>
+    <main>
+      <header class="text-zinc-200">
+        <nav
+          class="sticky top-0 flex bg-gradient-to-r from-rose-500 to-pink-500"
+        >
+          <!-- logo -->
+          <div class="flex items-center gap-2 p-2">
+            <img
+              src="./assets/images/logo-inverted.png"
+              alt="logo"
+              width="50"
+            />
+            <div class="text-2xl font-bold">
+              tw:<span class="text-sky-900">mf</span>
+            </div>
+          </div>
+
+          <!-- Mobile navigation -->
+          <div class="block pr-4 my-auto ml-auto cursor-pointer md:hidden">
+            <div id="mobile-menu-button" class="group">
+              <div
+                class="w-8 h-1 rounded-full bg-zinc-200 group-open:rotate-45"
+              ></div>
+              <div class="w-8 h-1 my-1 rounded-full bg-zinc-200"></div>
+              <div
+                class="w-8 h-1 rounded-full bg-zinc-200 group-open:-rotate-45"
+              ></div>
+            </div>
+          </div>
+
+          <!-- screen navigation -->
+          <div class="items-center justify-end flex-1 hidden md:flex">
+            <div class="menu-item">
+              <span>Home</span>
+            </div>
+            <div class="menu-item">
+              <span>Lineup</span>
+            </div>
+            <div class="menu-item group">
+              <span>Tickets</span>
+              <div
+                class="absolute right-0 hidden text-right bg-pink-500 top-full whitespace-nowrap rounded-b-md group-hover:block"
+              >
+                <div
+                  class="p-4 font-bold transition-colors ease-in-out cursor-pointer hover:bg-white/5 hover:text-zinc-200"
+                  text-pink-200
+                >
+                  <span>Single day ticket</span>
+                </div>
+                <div
+                  class="p-4 font-bold transition-colors ease-in-out cursor-pointer hover:bg-white/5 hover:text-zinc-200"
+                  text-pink-200
+                >
+                  <span>7 days ticket</span>
+                </div>
+              </div>
+            </div>
+            <div class="menu-item">
+              <span>Support</span>
+            </div>
+          </div>
+        </nav>
+      </header>
+    </main>
+  </body>
+</html>
