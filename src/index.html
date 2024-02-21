@@ -8,14 +8,29 @@
     <script defer src="./assets/fontawesome/js/fontawesome.min.js"></script>
     <script>
       window.onload = () => {
-        const mobileMenuItem = document.getElementById("mobile-menu-item");
-        mobileMenuItem.addEventListener();
+        const mobileMenuIcon = document.getElementById("mobile-menu-button");
+        mobileMenuIcon.addEventListener("click", () => {
+          if (mobileMenuIcon.classList.contains("open")) {
+            mobileMenuIcon.classList.remove("open");
+          } else {
+            mobileMenuIcon.classList.add("open");
+          }
+        });
+        const ticketMenuItem = document.getElementById("ticket-menu-item");
+        ticketMenuItem.addEventListener("click", () => {
+          if (ticketMenuItem.classList.contains("open")) {
+            ticketMenuItem.classList.remove("open");
+          } else {
+            ticketMenuItem.classList.add("open");
+          }
+        });
       };
     </script>
   </head>
   <body>
     <main>
       <header class="text-zinc-200">
+        <!-- nav menu -->
         <nav
           class="sticky top-0 flex bg-gradient-to-r from-rose-500 to-pink-500"
         >
@@ -33,14 +48,49 @@
 
           <!-- Mobile navigation -->
           <div class="block pr-4 my-auto ml-auto cursor-pointer md:hidden">
-            <div id="mobile-menu-button" class="group">
+            <div id="mobile-menu-button" class="group peer">
               <div
-                class="w-8 h-1 rounded-full bg-zinc-200 group-open:rotate-45"
+                class="relative top-0 w-8 h-1 transition-all rounded-full bg-zinc-200 group-open:top-2 group-open:rotate-45"
               ></div>
-              <div class="w-8 h-1 my-1 rounded-full bg-zinc-200"></div>
               <div
-                class="w-8 h-1 rounded-full bg-zinc-200 group-open:-rotate-45"
+                class="w-8 h-1 my-1 transition-all rounded-full opacity-100 bg-zinc-200 group-open:opacity-0"
               ></div>
+              <div
+                class="relative top-0 w-8 h-1 transition-all rounded-full bg-zinc-200 group-open:-top-2 group-open:-rotate-45"
+              ></div>
+            </div>
+            <!-- mobile menu -->
+            <div
+              class="absolute top-[62px] left-0 hidden w-full bg-gradient-to-r from-rose-500 to-pink-500 peer-open:block"
+            >
+              <div class="mobile-menu-item">
+                <span>Home</span>
+              </div>
+              <div class="mobile-menu-item">
+                <span>Lineup</span>
+              </div>
+              <div
+                class="block p-0 mobile-menu-item group"
+                id="ticket-menu-item"
+              >
+                <div class="p-4 font-bold text-center">Tickets</div>
+                <!-- tickets sub-menu -->
+                <div class="hidden group-open:block">
+                  <div
+                    class="relative p-4 text-center text-pink-200 transition-colors ease-in-out hover:bg-white/5 hover:text-zinc-200"
+                  >
+                    <span>Single day ticket</span>
+                  </div>
+                  <div
+                    class="relative p-4 text-center text-pink-200 transition-colors ease-in-out hover:bg-white/5 hover:text-zinc-200"
+                  >
+                    <span>7 days ticket</span>
+                  </div>
+                </div>
+              </div>
+              <div class="mobile-menu-item">
+                <span>Support</span>
+              </div>
             </div>
           </div>
 
@@ -76,6 +126,59 @@
             </div>
           </div>
         </nav>
+
+        <!-- hero section -->
+        <div
+          style="background-image: url('./assets/images/hero.jpg')"
+          class="flex h-[calc(100vh-200px)] min-h-[400px] flex-col items-center justify-center bg-cover bg-fixed bg-center"
+        >
+          <div
+            class="px-4 py-2 text-center rounded-xl bg-white/30 backdrop-blur-md"
+          >
+            <div class="relative">
+              <img src="./assets/images/logo.png" alt="logo" width="175" />
+              <div class="mt-[-70px] mb-5 flex items-center justify-center">
+                <div
+                  class="flex items-center justify-center gap-1 bg-pink-500 rounded-full h-14 w-14"
+                >
+                  <div
+                    class="w-1 h-2 bg-pink-300 rounded-full animate-wavey animation-delay-100"
+                  ></div>
+                  <div
+                    class="w-1 h-3 bg-pink-200 rounded-full animate-wavey animation-delay-300"
+                  ></div>
+                  <div
+                    class="w-1 h-4 bg-pink-100 rounded-full animate-wavey animation-delay-500"
+                  ></div>
+                  <div
+                    class="w-1 h-3 bg-pink-200 rounded-full animate-wavey animation-delay-200"
+                  ></div>
+                  <div
+                    class="w-1 h-2 bg-pink-300 rounded-full animate-wavey animation-delay-400"
+                  ></div>
+                </div>
+              </div>
+            </div>
+            <div class="text-5xl font-bold">
+              tw:<span class="text-sky-900">mf</span>
+            </div>
+          </div>
+          <div class="mt-3 text-sm font-bold">
+            Keep me updated with news and promotions
+          </div>
+          <div class="flex gap-4 mt-3">
+            <input
+              type="email"
+              placeholder="Email"
+              class="p-2 font-bold border rounded-sm border-white/40 bg-white/40 text-sky-900 placeholder-zinc-500 caret-pink-500 outline-pink-500 backdrop-blur-md"
+            />
+            <div
+              class="px-4 py-2 font-bold transition-colors bg-pink-500 rounded-sm cursor-pointer hover:bg-sky-900 hover:shadow-lg"
+            >
+              Subscribe
+            </div>
+          </div>
+        </div>
       </header>
     </main>
   </body>
